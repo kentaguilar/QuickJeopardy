@@ -1,3 +1,3 @@
 # Quick Jeopardy
 
-** A very simple/fixed jeopardy interpretation  **
+**A very simple/fixed jeopardy interpretation **
