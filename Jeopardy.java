@@ -10,31 +10,53 @@ public class Jeopardy extends JFrame
 {
 	JButton[][] buttons = new JButton[6][3];
 	JLabel[][] labels = new JLabel[1][2];
-	String[] players = { "John", "Stacy", "Me" };
+	String[] playersNames = { "John", "Stacy", "Me" };
+	
+	JPanel gamePanel = new JPanel();
+	JPanel playerPanel = new JPanel();
+	JPanel mainPanel = new JPanel();
 	
 	public Jeopardy()
 	{		
 		setTitle("Jeopardy App");
-		setSize(300, 500);
+		setSize(350, 450);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLayout(new GridLayout(6,3));
+		
+		gamePanel.setLayout(new GridLayout(6,3));
+		playerPanel.setLayout(new GridLayout(3, 1));
+		
+		gamePanel.setPreferredSize(new Dimension(350, 350));
+		
+		mainPanel.add(playerPanel, BorderLayout.NORTH);
+		mainPanel.add(gamePanel, BorderLayout.SOUTH);			
+		
+		setContentPane(mainPanel);
 		
 		setupLayout();
-		
 		setVisible(true);
 	}	
 	
 	public void setupLayout()
 	{		
 		//setup players
-		Player[] currentPlayers = new Player[players.length];		
-		for(int i = 0; i < players.length; i++)
-		{
-			currentPlayers[i] = new Player(players[i]);
+		Player[] players = new Player[playersNames.length];		
+		for(int i = 0; i < playersNames.length; i++)
+		{			
+			players[i] = new Player(playersNames[i], new JLabel(playersNames[i] + ": 0"));
+			if(playersNames[i].equals("Me"))
+			{
+				players[i].isBot = false;
+			}
+			else
+			{
+				players[i].isBot = true;
+			}
+			
+			playerPanel.add(players[i].playerLabel);
 		}
 		
 		//setup play
-		Common common = new Common();
+		Common common = new Common();	
 		common.setPlay();
 		
 		Play[] plays = common.getPlay();
@@ -44,7 +66,7 @@ public class Jeopardy extends JFrame
 			labels[0][i] = new JLabel(plays[i].name);
 			labels[0][i].setHorizontalAlignment(JLabel.CENTER);
 			labels[0][i].setVerticalAlignment(JLabel.CENTER);
-			add(labels[0][i]);
+			gamePanel.add(labels[0][i]);
 		}
 				
 		for(int x = 1; x < 6; x++)
@@ -52,8 +74,8 @@ public class Jeopardy extends JFrame
 			for(int i = 0; i < 2; i++)
 			{
 				buttons[x][i] = new JButton("$" + Integer.toString(plays[i].questionAnswers[x-1].points)); 
-				buttons[x][i].addActionListener(new QuestionListener(plays[i].name, plays[i].questionAnswers[x-1]));				
-				add(buttons[x][i]);
+				buttons[x][i].addActionListener(new QuestionListener(plays[i].name, plays[i].questionAnswers[x-1], plays, players));				
+				gamePanel.add(buttons[x][i]);
 			}
 		}
 	}
