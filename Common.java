@@ -36,19 +36,19 @@ public class Common
 		}
 		else if (categoryName == categories[2])
 		{
-			questionAnswers[0] = new QuestionAnswer("Celsius and Fahrenheit show the same temperature at", "40", 100);
-			questionAnswers[1] = new QuestionAnswer("Hasdo Valley in Chhattisgarh is famous for  ", "coal mines", 200);
-			questionAnswers[2] = new QuestionAnswer("Special Theory of Relative was proposed in", "1905", 300);
-			questionAnswers[3] = new QuestionAnswer("The disease bronchitis is associated with:", "lungs", 400);
-			questionAnswers[4] = new QuestionAnswer("Which is the alkalodid that contains in cola drinks?", "caffeine", 500);
+			questionAnswers[0] = new QuestionAnswer("Under the feudal system, what were people who worked the land called?", "serfs", 100);
+			questionAnswers[1] = new QuestionAnswer("In 1804, which country became the only nation in the world established as a result of a successful slave revolt?", "haiti", 200);
+			questionAnswers[2] = new QuestionAnswer("What was the official language of England for about 300 years, from 1066 to 1362?", "french", 300);
+			questionAnswers[3] = new QuestionAnswer("Which Roman Emperor married his sister and made his horse a senator?", "caligula", 400);
+			questionAnswers[4] = new QuestionAnswer("Which battle famously saw the US flag raised on Mount Suribachi?", "iwo jima", 500);
 		}
 		else if (categoryName == categories[3])
 		{
-			questionAnswers[0] = new QuestionAnswer("Celsius and Fahrenheit show the same temperature at", "40", 100);
-			questionAnswers[1] = new QuestionAnswer("Hasdo Valley in Chhattisgarh is famous for  ", "coal mines", 200);
-			questionAnswers[2] = new QuestionAnswer("Special Theory of Relative was proposed in", "1905", 300);
-			questionAnswers[3] = new QuestionAnswer("The disease bronchitis is associated with:", "lungs", 400);
-			questionAnswers[4] = new QuestionAnswer("Which is the alkalodid that contains in cola drinks?", "caffeine", 500);
+			questionAnswers[0] = new QuestionAnswer("20 % of 2 is equal to", "0.4", 100);
+			questionAnswers[1] = new QuestionAnswer("What is 5x5?", "25", 200);
+			questionAnswers[2] = new QuestionAnswer("What is 5+2", "7", 300);
+			questionAnswers[3] = new QuestionAnswer("What is 3x3", "9", 400);
+			questionAnswers[4] = new QuestionAnswer("What is 2+2", "4", 500);
 		}
 		
 		return questionAnswers;

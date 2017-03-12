@@ -40,11 +40,11 @@ public class AnswerListener implements ActionListener
 		{
 			answerResult = this.currentPlayer.name + ", your answer is correct!";
 			this.currentPlayer.score = this.currentPlayer.score + questionAnswer.points;			
-			this.currentPlayer.playerLabel.setText(this.currentPlayer.name + ": " + Integer.toString(this.currentPlayer.score));
+			this.currentPlayer.playerLabel.setText(this.currentPlayer.name + ": $" + Integer.toString(this.currentPlayer.score));
 			this.questionAnswer.isAnswered = true;
 			
 			//check status of questions			
-			for(int i = 0; i < 2; i++)
+			for(int i = 0; i < 4; i++)
 			{
 				for(int x = 0; x < currentPlays[i].questionAnswers.length; x++)
 				{

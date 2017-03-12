@@ -4,12 +4,11 @@ import Models.Play;
 import Models.Player;
 
 import java.awt.*;
-import java.util.Random;
 
 public class Jeopardy extends JFrame 
 {
-	JButton[][] buttons = new JButton[6][3];
-	JLabel[][] labels = new JLabel[1][2];
+	JButton[][] buttons = new JButton[6][5];
+	JLabel[][] labels = new JLabel[1][4];
 	String[] playersNames = { "John", "Stacy", "Me" };
 	
 	JPanel gamePanel = new JPanel();
@@ -22,7 +21,7 @@ public class Jeopardy extends JFrame
 		setSize(350, 450);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		gamePanel.setLayout(new GridLayout(6,3));
+		gamePanel.setLayout(new GridLayout(6,5));
 		playerPanel.setLayout(new GridLayout(3, 1));
 		
 		gamePanel.setPreferredSize(new Dimension(350, 350));
@@ -42,7 +41,7 @@ public class Jeopardy extends JFrame
 		Player[] players = new Player[playersNames.length];		
 		for(int i = 0; i < playersNames.length; i++)
 		{			
-			players[i] = new Player(playersNames[i], new JLabel(playersNames[i] + ": 0"));
+			players[i] = new Player(playersNames[i], new JLabel(playersNames[i] + ": $0"));
 			if(playersNames[i].equals("Me"))
 			{
 				players[i].isBot = false;
@@ -61,7 +60,7 @@ public class Jeopardy extends JFrame
 		
 		Play[] plays = common.getPlay();
 		
-		for(int i = 0; i < 2; i++)
+		for(int i = 0; i < 4; i++)
 		{
 			labels[0][i] = new JLabel(plays[i].name);
 			labels[0][i].setHorizontalAlignment(JLabel.CENTER);
@@ -71,7 +70,7 @@ public class Jeopardy extends JFrame
 				
 		for(int x = 1; x < 6; x++)
 		{
-			for(int i = 0; i < 2; i++)
+			for(int i = 0; i < 4; i++)
 			{
 				buttons[x][i] = new JButton("$" + Integer.toString(plays[i].questionAnswers[x-1].points)); 
 				buttons[x][i].addActionListener(new QuestionListener(plays[i].name, plays[i].questionAnswers[x-1], plays, players));				
